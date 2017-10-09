@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Photo Booth</title>
+  <!-- <link rel="stylesheet" href="tracking/assets/demo.css"> -->
+  <script src="js/jquery.min.js"></script>
+  <script src="tracking/build/tracking-min.js"></script>
+  <!-- <script src="tracking/build/data/eye-min.js"></script> -->
+  <script src="tracking/build/data/mouth-min.js"></script>
+  <script src="tracking/build/data/face-min.js"></script>
+   <script src="js/dat.gui.min.js"></script>
+    <!-- <script src="tracking/assets/stats.min.js"></script>-->
+
+  <style>
+  video, canvas {
+    margin-left: 10px;
+    margin-top: 10px;
+    position: absolute;
+  }
+  .change{
+  	max-width: 120px;
+  	margin: 0 20px;
+  }
+  #images{
+  	position: absolute;
+  	bottom: 0;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="demo-frame">
+    <div class="demo-container">
+      <video id="video" width="620" height="440" preload autoplay loop muted></video>
+       <canvas id="bg" width="620" height="440" style="background-color:#336CFF"></canvas>
+      <canvas id="screen" width="620" height="440"></canvas>
+      <canvas id="canvas" width="620" height="440"></canvas>
+     
+    </div>
+  </div>
+
+  <div id="images">
+	  <img class="change" src="hats/Red_Fedora.png" data-img="Red_Fedora" data-xpos=".02" data-ypos=".5" data-imgwidth="1" data-imgheight="1.2">
+	  <img class="change" src="hats/cowboy.png" data-img="cowboy" data-xpos=".2" data-ypos=".85" data-imgwidth="1.4" data-imgheight="1.2">
+	  <img class="change" src="hats/bowler.png" data-img="bowler" data-xpos=".02" data-ypos=".25" data-imgwidth="1.3" data-imgheight="1.2">
+  </div>
+
+  <script>
+  	video = document.getElementById('video');
+	video.addEventListener("play", filterEffect, false);
+
+	var vidRender=document.getElementById("screen");
+	var vidRctx=vidRender.getContext("2d");
+
+	function filterEffect() {
+	     renderCanvas(video);
+	}
+
+	function renderCanvas(vid) {
+	     if ( vid.paused || vid.embed ) return false;
+	     vidRctx.drawImage(vid,0,0);
+	     var vidData = vidRctx.getImageData(0,0,vidRender.width, vidRender.height);
+
+	     for ( var i=0; i<vidData.data.length; i+=4 ) {
+	         // if green is super high, filter it out.
+	         if ( vidData.data[i+1] > 230 ) {
+	              vidData.data[i+3] = 0;
+	         }
+	     }
+	     
+	     vidRctx.putImageData(vidData,0,0);
+	     
+	     setTimeout(function(){
+	          renderCanvas(vid);
+	     }, 20);
+	}
+
+
+    var hat = document.createElement("img");
+    hat.src = 'hats/Red_Fedora.png';
+
+    var xpos = .02;
+    var ypos = .5;
+    var imgwidth = 1;
+    var imgheight = 1.2;
+
+    var bowler = document.createElement("img");
+    bowler.src = 'hats/bowler.png';
+
+    window.onload = function() {
+
+      var video = document.getElementById('video');
+      var canvas = document.getElementById('canvas');
+      var context = canvas.getContext('2d');
+      // var tracker = new tracking.ObjectTracker(['eye','mouth']);
+      // tracker.setInitialScale(1);
+      // tracker.setStepSize(2.7);
+      // tracker.setEdgesDensity(.2);
+      var tracker = new tracking.ObjectTracker('face');
+      tracker.setInitialScale(4);
+      tracker.setStepSize(2);
+      tracker.setEdgesDensity(0.1);
+      tracking.track('#video', tracker, { camera: true });
+      tracker.on('track', function(event) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        event.data.forEach(function(rect) {
+          context.drawImage(hat, rect.x - rect.width * xpos, rect.y - rect.height * ypos, rect.width * imgwidth, rect.height * imgheight);
+        });
+      });
+
+    };
+
+
+    $( ".change" ).click(function() {
+
+	 	var image = $(this).data("img");
+
+	 	ypos = $(this).data("ypos");
+	 	xpos = $(this).data("xpos");
+	 	imgwidth = $(this).data("imgwidth");
+	 	imgheight = $(this).data("imgheight");
+
+	 	hat.src = 'hats/'+image+'.png';
+
+	});
+
+
+  </script>
+
+
+</body>
+</html>
