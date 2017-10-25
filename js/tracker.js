@@ -59,6 +59,8 @@ var masks = [{  "creature":[{
 
     updateSelected();
 
+    var num = 0;
+
     window.onload = function() {
 
       var video = document.getElementById('video');
@@ -77,46 +79,40 @@ var masks = [{  "creature":[{
 
 	      tracker.on('track', function(event) {
 	        context.clearRect(0, 0, canvas.width, canvas.height);
-	        
-	        var num = 0;
 
 	        event.data.forEach(function(rect) {
-	        if ($(".selected").length > 0){
-
-	        	// check if num of faces is greater than total chosen
-	        	if (num > selected.length){
-	        		num = 0;
-	        	}
 
 		        // increment and load variables
 
 		        var activemask = selected[num];
 
-		        var mask = document.createElement("img");
-			    mask.src = 'hats/'+activemask+'.png';
 
-			    var draw = masks[0];
-			    draw = draw[activemask];
+	          if (activemask === undefined){
+	          		var mask = document.createElement("img");
+				    mask.src = 'hats/transparent.png';
 
-		        var xpos = draw[0].xpos;
-			    var ypos = draw[0].ypos;
-			    var imgwidth = draw[0].imgwidth;
-			    var imgheight = draw[0].imgheight;
+				    var xpos = 0;
+				    var ypos = 0;
+				    var imgwidth = 0;
+				    var imgheight = 0;
+			  }else{
+				  	var mask = document.createElement("img");
+				    mask.src = 'hats/'+activemask+'.png';
 
-			    num++
+				    var draw = masks[0];
+				    draw = draw[activemask];
 
-	          // context.drawImage(hat, rect.x - rect.width * xpos, rect.y - rect.height * ypos, rect.width * imgwidth, rect.height * imgheight);
-	          context.drawImage(mask, rect.x - rect.width * xpos, rect.y - rect.height * ypos, rect.width * imgwidth, rect.height * imgheight);
-		 	}else{
-		 		return;
-		 		setTimeout(function () {
-		            addMasks.stop(); 
-		        }, 100);
-		 		console.log("no masks");
-		 	}
+				    var xpos = draw[0].xpos;
+				    var ypos = draw[0].ypos;
+				    var imgwidth = draw[0].imgwidth;
+				    var imgheight = draw[0].imgheight;
+				}
 
+				context.drawImage(mask, rect.x - rect.width * xpos, rect.y - rect.height * ypos, rect.width * imgwidth, rect.height * imgheight);
 
+	        	num++
 
+	        	updateSelected();
 	        });
 	      });
 
@@ -131,14 +127,15 @@ var masks = [{  "creature":[{
 		  	selected.push(title);
 		});
 
+    	if (num+1 > selected.length){
+    		num = 0;
+    	}
+
     }
-
-
 
 
     $( ".change" ).click(function() {
 	 	$(this).toggleClass("selected");
-	 	updateSelected();
 	});
 
 

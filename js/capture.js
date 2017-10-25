@@ -28,7 +28,7 @@ function generateImage(num){
   ctx.drawImage(canvas2, 0, 0); 
   ctx.drawImage(canvas3, 0, 0);
 
-  hires = combined.toDataURL('image/jpeg', 1);
+  hires = combined.toDataURL('image/jpeg', .5);
 
 }
 
@@ -37,7 +37,8 @@ function generateImage(num){
 $("#shoot").click(function() { 
   generateImage(1.5);
   setTimeout(function(){ 
-    $("#img-out").html('<img src="'+hires+'">'); 
+    $("#img-out").html('<img id="save-img" src="'+hires+'">');
+    $("#fileToUpload").val(hires); 
   }, 3000);  
 
   $("#preview").toggleClass("show");
@@ -57,5 +58,10 @@ $(".close").click(function() {
 
   $(this).parent().toggleClass("show");
 });
+
+  $("#send").click(function() {  
+      //  THIS LINE SUBMITS THE HIDDEN INPUT & UPLOADS IMAGE
+      document.getElementById("uploadImage").submit();
+  });
 
 });
