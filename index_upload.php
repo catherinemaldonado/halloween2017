@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Photo Booth</title>
-  <!-- <link rel="stylesheet" href="tracking/assets/demo.css"> -->
+
   <script src="js/jquery.min.js"></script>
    <script src="js/html2canvas.min.js"></script>
   <script src="tracking/build/tracking-min.js"></script>
@@ -14,8 +14,8 @@
    <script src="js/dat.gui.min.js"></script>
    <script src="js/tracker.js"></script>
    <script src="js/capture.js"></script>
-   <script src="https://smtpjs.com/smtp.js">
-</script>
+   <script src="https://smtpjs.com/smtp.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
     <!-- <script src="tracking/assets/stats.min.js"></script>-->
 
 
@@ -30,11 +30,16 @@
   }
   .change{
     max-width: 120px;
-    margin: 0 20px;
+    /*margin: 0 20px;*/
+
   }
   #images{
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
+    z-index: 2500;
+    width: 920px;
+    max-height: 300px;
+    margin: 0 10px 0 62px;
   }
   .button{
     border-radius: 30px;
@@ -49,8 +54,20 @@
     text-transform: uppercase;
   }
   #shoot{
-    float:right;
+    background: url('img/take_photo_btn.png')no-repeat 0 0;
+    width: 104px;
+    height: 68px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
   }
+
+  #shoot:hover{
+    background: url('img/take_photo_btn.png') no-repeat 0 -71px;
+    width: 104px;
+    height: 65px;
+  }
+
   #combined{
     width:500px;
     position: relative;
@@ -100,11 +117,104 @@
   }
 
   .selected{
-    border:3px solid #000000;
+    /*border:3px solid #000000;*/
   }
 
-  </style>
+  #photo-box{
+    overflow: hidden;
+    display: block;
+    position: relative;
+    height: 795px;
+  }
 
+  .item{
+    background-color: rgba(203,247,255,.75);
+    padding:3px;
+    cursor: pointer;
+  }
+
+  .item:hover{
+    background-color: rgba(203,247,255,1);
+  }
+
+  .item.dark{
+    background-color: rgba(203,247,255,1);
+  }
+
+  #bg-thumbs{
+    width: 200px;
+    position: absolute;
+    top:0;
+    right:0;
+    margin:12px 0 0 0;
+  }
+
+  #bg-thumbs img{
+    width: 40%;
+    margin: 2%;
+    cursor: pointer;
+  }
+
+  .owl-prev, .owl-next{
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    background: rgba(255,255,255,.7);
+    border-radius: 40px;
+    padding: 5px 12px;
+  }
+
+  .owl-prev:hover, .owl-next:hover{
+    background: rgba(255,255,255, 1);
+  }
+
+  .owl-prev.disabled, .owl-next.disabled{
+    display: none;
+  }
+
+  .owl-prev{
+    position: absolute;
+    left:-45px;
+    bottom: 20px;
+  }
+  .owl-prev:before{
+    content:'<';
+  }
+
+  .owl-next{
+    position: absolute;
+    right: -45px;
+    bottom: 20px;
+  }
+  .owl-next:before{
+    content:'>';
+  }
+
+  #timer{
+    font-size: 50px;
+    border-radius: 500px;
+    padding:20px;
+    background-color: #000;
+    color:#fff;
+    position: absolute;
+    z-index: 3000;
+    top:30%;
+    left: 30%;
+  }
+
+  #countdown{
+    height:50px;
+    width: 50px;
+    margin:0 auto;
+    text-align: center;
+  }
+
+  #timer.hide{
+    display: none;
+  }
+  </style>
+  <link rel="stylesheet" type="text/css" href="js/assets/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="js/assets/owl.theme.default.min.css">
 
 </head>
 <body>
@@ -116,19 +226,16 @@
       <canvas id="canvas" width="1024" height="768" ></canvas>
   </div>
 
-  <div id="shoot" class="button">SNAP</div>
 
 <div id="preview">
 <canvas id="combined" width="1024" height="768" ></canvas>
 <div id="img-out"></div>
 <br clear="all">
 <div style="margin:0 auto;display:table;">
-<!--  <a class="button" href="#"
-onclick="this.href = $('#img-out img').attr('src');" download="halloween">download</a> -->
+ <a class="button" href="#"
+onclick="this.href = $('#img-out img').attr('src');" download="halloween">download</a>
 
 <div id="new" class="button">take a new photo</div><br><br><br><br>
-
-<!-- <div id="email" class="button">email me a copy</div> -->
 
 <form method="POST" enctype="multipart/form-data" action="save.php" id="uploadImage">
   <input type="hidden" name="fileToUpload" id="fileToUpload" value="" /><br>
@@ -148,25 +255,41 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
 
 </div>
 
-  <div id="images">
-    <img class="change selected" src="hats/creature2.png" data-name="creature">
-    <img class="change" src="hats/arthur.png" data-name="arthur">
-    <img class="change" src="hats/dw.png" data-name="dw">
-<!--     <img class="change" src="hats/curious_mask.png" data-name="curious_mask">
-    <img class="change" src="hats/MIYH_hat.png" data-name="MIYH_hat">
-    <img class="change" src="hats/womans_hat.png" data-name="womans_hat"> -->
-
-<!--    <img class="change" src="hats/Red_Fedora.png" data-img="Red_Fedora.png" data-xpos=".02" data-ypos=".5" data-imgwidth="1" data-imgheight="1.2">
-    <img class="change" src="hats/cowboy.png" data-img="cowboy.png" data-xpos=".2" data-ypos=".85" data-imgwidth="1.4" data-imgheight="1.2">
-    <img class="change" src="hats/bowler.png" data-img="bowler.png" data-xpos=".02" data-ypos=".25" data-imgwidth="1.3" data-imgheight="1.2"> -->
+  <div id="images" class="masks-carousel owl-carousel">
+    <div class="item"><img class="change" src="hats/arthur.png" data-name="arthur"></div>
+    <div class="item"><img class="change" src="hats/dw.png" data-name="dw"></div>
+    <div class="item"><img class="change" src="hats/ruff.png" data-name="ruff"></div>
+    <div class="item"><img class="change" src="hats/george.png" data-name="george"></div>
+    <div class="item"><img class="change" src="hats/MIYH.png" data-name="MIYH"></div>
+    <div class="item"><img class="change" src="hats/creature2.png" data-name="creature"></div>
+    <div class="item"><img class="change" src="hats/dracula.png" data-name="dracula"></div>
+    <div class="item"><img class="change" src="hats/wolfman.png" data-name="wolfman"></div>
+    <div class="item"><img class="change" src="hats/mans_hat.png" data-name="mans_hat"></div>
+    <div class="item"><img class="change" src="hats/womans_hat.png" data-name="womans_hat"></div>
+    <div class="item"><img class="change" src="hats/mummy.png" data-name="mummy"></div>
+    <div class="item"><img class="change" src="hats/witch.png" data-name="witch"></div>
+    <div class="item"><img class="change" src="hats/frankenstein.png" data-name="frankenstein"></div>
   </div>
 
-  <script>
+  <div id="bg-thumbs">
 
+    <img src="bgs/thumb/arthur_spooky_bg_thumb.png" data-bg="arthur_spooky_bg" />
+    <img src="bgs/thumb/Ruff_bg_thumb.png" data-bg="Ruff_bg" />
+    <img src="bgs/thumb/black_lagoon_bg_thumb.png" data-bg="black_lagoon_bg" />
+    <img src="bgs/thumb/Curious_george_bg_thumb.png" data-bg="Curious_george_bg" />
+    <img src="bgs/thumb/edward_gorey_bg_thumb.png" data-bg="edward_gorey_bg" />
+    <img src="bgs/thumb/egyptian_tomb_bg_thumb.png" data-bg="egyptian_tomb_bg" />
+    <img src="bgs/thumb/franken_bg_thumb.png" data-bg="franken_bg" />
+    <img src="bgs/thumb/full_moon_bg_thumb.png" data-bg="full_moon_bg" />
+    <img src="bgs/thumb/spooky_organ_bg_thumb.png" data-bg="spooky_organ_bg" />
 
+    <div id="shoot"></div>
 
-  </script>
+  </div>
 
+<div id="timer" class="hide">
+  <div id="countdown">5</div>
+</div>
 
 
 </body>

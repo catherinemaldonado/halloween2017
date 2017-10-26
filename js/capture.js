@@ -32,16 +32,52 @@ function generateImage(num){
 
 }
 
+$("#bg-thumbs img").click(function(){
+  var newbg = $(this).data("bg");
+  background('bgs/'+newbg+'.png');
+});
+
+function countdown() {
+
+seconds = document.getElementById('countdown').innerHTML;
+seconds = parseInt(seconds, 10);
+
+if (seconds == 1) {
+  temp = document.getElementById('countdown');
+  temp.innerHTML = "0";
+
+  $("#timer").addClass("hide");
+
+  temp.innerHTML = "5";
+
+  return;
+}
+
+seconds--;
+temp = document.getElementById('countdown');
+temp.innerHTML = seconds;
+timeoutMyOswego = setTimeout(countdown, 1000);
+} 
 
 // generate preview on "save"
 $("#shoot").click(function() { 
-  generateImage(1.5);
-  setTimeout(function(){ 
-    $("#img-out").html('<img id="save-img" src="'+hires+'">');
-    $("#fileToUpload").val(hires); 
-  }, 3000);  
+  $("#timer").removeClass("hide");
+  setTimeout(function(){
+    countdown();
+  }, 500);
 
-  $("#preview").toggleClass("show");
+  setTimeout(function(){
+
+      generateImage(1.5);
+      setTimeout(function(){ 
+        $("#img-out").html('<img id="save-img" src="'+hires+'">');
+        $("#fileToUpload").val(hires); 
+      }, 3000);  
+
+      $("#preview").toggleClass("show");
+
+  }, 9000);
+
 });
 
 $("#new").click(function() { 

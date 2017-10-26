@@ -1,26 +1,15 @@
 $( document ).ready(function() { 
 
-	// video = document.getElementById('video');
-	// video.addEventListener("play", resize, false);
+$('.masks-carousel').owlCarousel({
+    stagePadding: 50,
+    margin:10,
+    nav:true, 
+    navText:'',
+    items:8
+})
 
-
-     function fitToContainer(resize){
-	    var canvas = document.getElementById(resize);
-	    canvas.width = $("#parent").width();
-	    canvas.height = $("#parent").height();
-	  }
-
-	function resize(){
-	  fitToContainer("bg");
-	  fitToContainer("screen");
-	  fitToContainer("canvas");
-
-	  filterEffect();
-	}
-
-
-
-
-
+var seconds;
+var temp;
+ 
 
 });

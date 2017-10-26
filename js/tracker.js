@@ -29,33 +29,50 @@
 	     }, 10);
 	}
 
-var masks = [{  "creature":[{
-				"src":"creature2.png","xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
-				}],
-				"arthur":[{
-				"src":"arthur.png","xpos":"-.05","ypos":".3","imgwidth":"1","imgheight":"1"
-				}],
-				"dw":[{
-				"src":"dw.png","xpos":".4","ypos":".75","imgwidth":"1.8","imgheight":"1.8"
-				}]
-			}];
+	var masks = [{  
+		"creature":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"ruff":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"arthur":[{
+				"xpos":"-.05","ypos":".3","imgwidth":"1","imgheight":"1"
+		}],
+		"dw":[{
+				"xpos":".4","ypos":".75","imgwidth":"1.8","imgheight":"1.8"
+		}],
+		"george":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"MIYH":[{
+			"xpos":".1","ypos":"1","imgwidth":"1.5","imgheight":"1.3"
+		}],
+		"dracula":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"wolfman":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"mans_hat":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"womans_hat":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"mummy":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"witch":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}],
+		"frankenstein":[{
+				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+		}]
+	}];
 
-	// console.log(masks[0].arthur[0].src);
 
 	var selected = [];
-	
-
- 
-    // var hat = document.createElement("img");
-    // hat.src = 'hats/creature2.png';
-
-    // var xpos = .19;
-    // var ypos = .25;
-    // var imgwidth = 1.45;
-    // var imgheight = 1.5;
-
-    // var bowler = document.createElement("img");
-    // bowler.src = 'hats/bowler.png';
 
     updateSelected();
 
@@ -66,10 +83,6 @@ var masks = [{  "creature":[{
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
-      // var tracker = new tracking.ObjectTracker(['eye','mouth']);
-      // tracker.setInitialScale(1);
-      // tracker.setStepSize(2.7);
-      // tracker.setEdgesDensity(.2);
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
       tracker.setStepSize(2);
@@ -82,9 +95,9 @@ var masks = [{  "creature":[{
 
 	        event.data.forEach(function(rect) {
 
-		        // increment and load variables
+		     // increment and load variables
 
-		        var activemask = selected[num];
+		      var activemask = selected[num];
 
 
 	          if (activemask === undefined){
@@ -95,7 +108,7 @@ var masks = [{  "creature":[{
 				    var ypos = 0;
 				    var imgwidth = 0;
 				    var imgheight = 0;
-			  }else{
+			    }else{
 				  	var mask = document.createElement("img");
 				    mask.src = 'hats/'+activemask+'.png';
 
@@ -114,8 +127,7 @@ var masks = [{  "creature":[{
 
 	        	updateSelected();
 	        });
-	      });
-
+        });
     };
 
     function updateSelected(){
@@ -136,6 +148,7 @@ var masks = [{  "creature":[{
 
     $( ".change" ).click(function() {
 	 	$(this).toggleClass("selected");
+	 	$(this).parent().toggleClass("dark");
 	});
 
 
