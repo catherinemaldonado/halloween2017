@@ -100,4 +100,19 @@ $(".close").click(function() {
       document.getElementById("uploadImage").submit();
   });
 
+  $("#roulette").click(function() {  
+      $(".change").each(function() {
+        $(this).addClass("selected");
+        $(this).parent().addClass("dark");
+      });
+  });
+
+  $("#reset").click(function() {  
+      $(".change").each(function() {
+        $(this).removeClass("selected");
+        $(this).parent().removeClass("dark");
+      });
+  });
+
+
 });

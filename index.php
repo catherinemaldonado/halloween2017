@@ -42,8 +42,8 @@
     margin: 0 10px 0 62px;
   }
   .button{
-    border-radius: 30px;
-    background-color: #FF8C00;
+    border-radius: 10px;
+    background-color: #00b908;
     color: #fff;
     display: table;
     padding:10px;
@@ -52,6 +52,10 @@
     cursor:pointer;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .button:hover{
+    background-color: #00e105;
   }
   #shoot{
     background: url('img/take_photo_btn.png')no-repeat 0 0;
@@ -134,11 +138,11 @@
   }
 
   .item:hover{
-    background-color: rgba(203,247,255,1);
+    background-color: rgba(19,122,175,1);
   }
 
   .item.dark{
-    background-color: rgba(203,247,255,1);
+    background-color: rgba(19,122,175,1);
   }
 
   #bg-thumbs{
@@ -153,6 +157,11 @@
     width: 40%;
     margin: 2%;
     cursor: pointer;
+  }
+
+  #bg-thumbs .button{
+    margin:0 auto 10px auto;
+    float:none;
   }
 
   .owl-prev, .owl-next{
@@ -282,8 +291,14 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <img src="bgs/thumb/franken_bg_thumb.png" data-bg="franken_bg" />
     <img src="bgs/thumb/full_moon_bg_thumb.png" data-bg="full_moon_bg" />
     <img src="bgs/thumb/spooky_organ_bg_thumb.png" data-bg="spooky_organ_bg" />
-
+    <br><br>
+    <div id="roulette" class="button">mask roulette</div>
+    <br>
+    <div id="reset" class="button">reset masks</div>
+    <br clear="all">
     <div id="shoot"></div>
+
+    
 
   </div>
 
