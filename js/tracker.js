@@ -34,7 +34,7 @@
 				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
 		}],
 		"ruff":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".45","ypos":".24","imgwidth":"1.85","imgheight":"1.85"
 		}],
 		"arthur":[{
 				"xpos":"-.05","ypos":".3","imgwidth":"1","imgheight":"1"
@@ -46,16 +46,16 @@
 				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
 		}],
 		"MIYH":[{
-			"xpos":".1","ypos":"1","imgwidth":"1.5","imgheight":"1.3"
+			"xpos":".3","ypos":"1.25","imgwidth":"1.64","imgheight":"1.64"
 		}],
 		"dracula":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".05","ypos":".33","imgwidth":"1.15","imgheight":"1.15"
 		}],
 		"wolfman":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".07","ypos":".3","imgwidth":"1.175","imgheight":"1.175"
 		}],
 		"mans_hat":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".15","ypos":".45","imgwidth":"1.32","imgheight":"1.32"
 		}],
 		"womans_hat":[{
 				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"

@@ -2,4 +2,4 @@
 
 Files for WGBH Halloween 2017 photo booth.
 
-https://idiophonebox.com/halloween/index_upload.php
+https://idiophonebox.com/halloween/index.php
