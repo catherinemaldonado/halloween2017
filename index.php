@@ -230,7 +230,7 @@
 
   <div id="photo-box">
       <video id="video" width="1024" height="768" preload autoplay loop muted></video>
-       <canvas id="bg" width="1024" height="768" ></canvas>
+       <!-- <canvas id="bg" width="1024" height="768" ></canvas> -->
       <canvas id="screen" width="1024" height="768" ></canvas>
       <canvas id="canvas" width="1024" height="768" ></canvas>
   </div>
@@ -273,7 +273,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <div class="item"><img class="change" src="hats/creature2.png" data-name="creature"></div>
     <div class="item"><img class="change" src="hats/dracula.png" data-name="dracula"></div>
     <div class="item"><img class="change" src="hats/wolfman.png" data-name="wolfman"></div>
-    <div class="dark item"><img class="change selected" src="hats/mans_hat.png" data-name="mans_hat"></div>
+    <div class="item"><img class="change" src="hats/mans_hat.png" data-name="mans_hat"></div>
     <div class="item"><img class="change" src="hats/womans_hat.png" data-name="womans_hat"></div>
     <div class="item"><img class="change" src="hats/mummy.png" data-name="mummy"></div>
     <div class="item"><img class="change" src="hats/witch.png" data-name="witch"></div>
@@ -282,7 +282,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
 
   <div id="bg-thumbs">
 
-    <img src="bgs/thumb/arthur_spooky_bg_thumb.png" data-bg="arthur_spooky_bg" />
+    <!-- <img src="bgs/thumb/arthur_spooky_bg_thumb.png" data-bg="arthur_spooky_bg" />
     <img src="bgs/thumb/Ruff_bg_thumb.png" data-bg="Ruff_bg" />
     <img src="bgs/thumb/black_lagoon_bg_thumb.png" data-bg="black_lagoon_bg" />
     <img src="bgs/thumb/Curious_george_bg_thumb.png" data-bg="Curious_george_bg" />
@@ -290,7 +290,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <img src="bgs/thumb/egyptian_tomb_bg_thumb.png" data-bg="egyptian_tomb_bg" />
     <img src="bgs/thumb/franken_bg_thumb.png" data-bg="franken_bg" />
     <img src="bgs/thumb/full_moon_bg_thumb.png" data-bg="full_moon_bg" />
-    <img src="bgs/thumb/spooky_organ_bg_thumb.png" data-bg="spooky_organ_bg" />
+    <img src="bgs/thumb/spooky_organ_bg_thumb.png" data-bg="spooky_organ_bg" /> -->
     <br><br>
     <div id="roulette" class="button">mask roulette</div>
     <br>

@@ -1,41 +1,41 @@
  $( document ).ready(function() { 
 
-var hires;
+  var hires;
 var canvas1 = document.getElementById("bg");
 
-var vidRender=document.getElementById("screen");
-var vidRctx=vidRender.getContext("2d");
+function background(x){
+  var bg = new Image();
+  bg.src = x;
 
-function renderCanvas(vid) {
+  var ctxbg = canvas1.getContext("2d");
 
-  
+  bg.onload = function() {
+    ctxbg.drawImage(bg,0,0,1024,768);
+  };
+};
 
-  var vidData = vidRctx.getImageData(0,0,vidRender.width, vidRender.height);
-  
-       if ( vid.paused || vid.embed ) return false;
-       vidRctx.drawImage(vid,0,0,1024,768);
-       var vidData = vidRctx.getImageData(0,0,vidRender.width, vidRender.height);
-       
-       vidRctx.putImageData(vidData,0,0);
-  }
+background('hats/arthur_spooky_bg.png');
 
 function generateImage(num){
   var canvas2 = document.getElementById("screen");
   var canvas3 = document.getElementById("canvas");
 
-  video = document.getElementById('video');
-  renderCanvas(video);
 
   var combined = document.getElementById("combined");
   var ctx = combined.getContext("2d");
 
-  // ctx.drawImage(canvas1, 0, 0); 
+  ctx.drawImage(canvas1, 0, 0); 
   ctx.drawImage(canvas2, 0, 0); 
   ctx.drawImage(canvas3, 0, 0);
 
   hires = combined.toDataURL('image/jpeg', .5);
 
 }
+
+$("#bg-thumbs img").click(function(){
+  var newbg = $(this).data("bg");
+  background('bgs/'+newbg+'.png');
+});
 
 function countdown() {
 
@@ -76,15 +76,12 @@ $("#shoot").click(function() {
 
       $("#preview").toggleClass("show");
 
-  }, 6500);
+  }, 9000);
 
 });
 
 $("#new").click(function() { 
   $("#preview").toggleClass("show");
-
-  vidRctx.clearRect(0, 0, canvas.width, canvas.height);
-
 });
 
 $("#email").click(function() { 
@@ -101,11 +98,6 @@ $(".close").click(function() {
   $("#send").click(function() {  
       //  THIS LINE SUBMITS THE HIDDEN INPUT & UPLOADS IMAGE
       document.getElementById("uploadImage").submit();
-  });
-
-  $( ".change" ).click(function() {
-    $(this).toggleClass("selected");
-    $(this).parent().toggleClass("dark");
   });
 
   $("#roulette").click(function() {  

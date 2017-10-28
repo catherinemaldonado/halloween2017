@@ -1,31 +1,33 @@
  $( document ).ready(function() { 	
 
- //  	video = document.getElementById('video');
-	// // video.addEventListener("play", filterEffect, false);
+  	video = document.getElementById('video');
+	video.addEventListener("play", filterEffect, false);
 
-	// var vidRender=document.getElementById("screen");
-	// var vidRctx=vidRender.getContext("2d");
+	var vidRender=document.getElementById("screen");
+	var vidRctx=vidRender.getContext("2d");
 
-	// vidRctx.putImageData(vidData,0,0);
+	function filterEffect() {
+	     renderCanvas(video);
+	}
 
-	// function filterEffect() {
-	//      renderCanvas(video);
-	// }
+	function renderCanvas(vid) {
+	     if ( vid.paused || vid.embed ) return false;
+	     vidRctx.drawImage(vid,0,0,1024,768);
+	     var vidData = vidRctx.getImageData(0,0,vidRender.width, vidRender.height);
 
-	// function renderCanvas(vid) {
-	//      if ( vid.paused || vid.embed ) return false;
-	//      vidRctx.drawImage(vid,0,0,1024,768);
-	//      var vidData = vidRctx.getImageData(0,0,vidRender.width, vidRender.height);
-
-	//      for ( var i=0; i<vidData.data.length; i+=4 ) {
-	//          // if green is super high, filter it out.
-	//          if ( vidData.data[i+1] > 230 ) {
-	//               vidData.data[i+3] = 0;
-	//          }
-	//      }
+	     for ( var i=0; i<vidData.data.length; i+=4 ) {
+	         // if green is super high, filter it out.
+	         if ( vidData.data[i+1] > 230 ) {
+	              vidData.data[i+3] = 0;
+	         }
+	     }
 	     
-	     // vidRctx.putImageData(vidData,0,0);
-	// }
+	     vidRctx.putImageData(vidData,0,0);
+	     
+	     setTimeout(function(){
+	          renderCanvas(vid);
+	     }, 10);
+	}
 
 	var masks = [{  
 		"creature":[{
@@ -142,6 +144,16 @@
     	}
 
     }
+
+
+    $( ".change" ).click(function() {
+	 	$(this).toggleClass("selected");
+	 	$(this).parent().toggleClass("dark");
+	});
+
+
+
+
 
 
 });
