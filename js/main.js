@@ -10,6 +10,19 @@ $('.masks-carousel').owlCarousel({
 
 var seconds;
 var temp;
- 
+
+
+$('.gallery-carousel').owlCarousel({
+    margin:10,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout: 5000,
+    nav:true, 
+    navText:'',
+    items:1
+})
+
+
+
 
 });
