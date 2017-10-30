@@ -277,7 +277,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <div class="item"><img class="change" src="hats/womans_hat.png" data-name="womans_hat"></div>
     <div class="item"><img class="change" src="hats/mummy.png" data-name="mummy"></div>
     <div class="item"><img class="change" src="hats/witch.png" data-name="witch"></div>
-    <div class="item dark"><img class=" selected change" src="hats/frankenstein.png" data-name="frankenstein"></div>
+    <div class="item"><img class="change" src="hats/frankenstein.png" data-name="frankenstein"></div>
   </div>
 
   <div id="bg-thumbs">
