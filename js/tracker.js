@@ -28,7 +28,7 @@
 	// }
 
 	var masks = [{  
-		"creature":[{
+		"creature2":[{
 				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
 		}],
 		"ruff":[{

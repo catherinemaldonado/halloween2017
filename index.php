@@ -27,6 +27,7 @@
   }
   body{
     font-family:arial;
+    background-color: #000;
   }
   .change{
     max-width: 120px;
@@ -270,7 +271,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <div class="item"><img class="change" src="hats/ruff.png" data-name="ruff"></div>
     <div class="item"><img class="change" src="hats/george.png" data-name="george"></div>
     <div class="item"><img class="change" src="hats/MIYH.png" data-name="MIYH"></div>
-    <div class="item"><img class="change" src="hats/creature2.png" data-name="creature"></div>
+    <div class="item"><img class="change" src="hats/creature2.png" data-name="creature2"></div>
     <div class="item"><img class="change" src="hats/dracula.png" data-name="dracula"></div>
     <div class="item"><img class="change" src="hats/wolfman.png" data-name="wolfman"></div>
     <div class="item"><img class="change" src="hats/mans_hat.png" data-name="mans_hat"></div>
