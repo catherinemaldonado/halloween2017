@@ -47,7 +47,7 @@
 			"xpos":".3","ypos":"1.25","imgwidth":"1.64","imgheight":"1.64"
 		}],
 		"dracula":[{
-				"xpos":".05","ypos":".33","imgwidth":"1.15","imgheight":"1.15"
+				"xpos":".05","ypos":".25","imgwidth":"1.15","imgheight":"1.15"
 		}],
 		"wolfman":[{
 				"xpos":".07","ypos":".3","imgwidth":"1.175","imgheight":"1.175"
@@ -56,13 +56,13 @@
 				"xpos":".15","ypos":".45","imgwidth":"1.32","imgheight":"1.32"
 		}],
 		"womans_hat":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":"-.3","ypos":".65","imgwidth":".75","imgheight":"1.1"
 		}],
 		"mummy":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".35","ypos":".25","imgwidth":"1.45","imgheight":"1.45"
 		}],
 		"witch":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".42","ypos":".85","imgwidth":"1.9","imgheight":"1.9"
 		}],
 		"frankenstein":[{
 				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
