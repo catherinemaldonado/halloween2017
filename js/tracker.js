@@ -65,7 +65,7 @@
 				"xpos":".42","ypos":".85","imgwidth":"1.9","imgheight":"1.9"
 		}],
 		"frankenstein":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".1","ypos":".2","imgwidth":"1.25","imgheight":"1.35"
 		}]
 	}];
 
