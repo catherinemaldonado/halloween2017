@@ -34,14 +34,21 @@
     /*margin: 0 20px;*/
 
   }
-  #images{
+
+  #mask-box{
+    width: 100%;
     position: absolute;
-    bottom: 20px;
+    bottom: 60px;
     z-index: 2500;
+  }
+
+  #images{  
     width: 920px;
     max-height: 300px;
-    margin: 0 10px 0 62px;
+    margin: 0 auto;
   }
+
+
   .button{
     border-radius: 10px;
     background-color: #00b908;
@@ -85,14 +92,16 @@
   }
 
   #preview.show{
+    font-size: 22px;
     display: block;
     width:100%;
     height: 100%;
-    background-color:#fff;
+    background-color:#000;
     position: absolute;
     top:0;
     left:0;
     z-index:3000;
+    color:#fff;
   }
 
   #img-out{
@@ -130,6 +139,8 @@
     display: block;
     position: relative;
     height: 795px;
+    width:1024px;
+    margin:0 auto;
   }
 
   .item{
@@ -147,7 +158,7 @@
   }
 
   #bg-thumbs{
-    width: 200px;
+    width: 20%;
     position: absolute;
     top:0;
     right:0;
@@ -201,26 +212,39 @@
   }
 
   #timer{
-    font-size: 50px;
+    font-size: 80px;
     border-radius: 500px;
     padding:20px;
-    background-color: #000;
+    background-color: #00b908;
     color:#fff;
     position: absolute;
     z-index: 3000;
-    top:30%;
-    left: 30%;
+    top:40%;
+    left: 45%;
   }
 
   #countdown{
-    height:50px;
-    width: 50px;
+    display: block;
+    height:100px;
+    width: 100px;
     margin:0 auto;
     text-align: center;
   }
 
   #timer.hide{
     display: none;
+  }
+
+  #send-email{
+    height: 30px;
+    width: 300px;
+    font-size: 18px;
+    margin:10px;
+  }
+
+  #share{
+    height: 30px;
+    width: 30px;
   }
   </style>
   <link rel="stylesheet" type="text/css" href="js/assets/owl.carousel.min.css">
@@ -242,15 +266,15 @@
 <div id="img-out"></div>
 <br clear="all">
 <div style="margin:0 auto;display:table;">
- <a class="button" href="#"
-onclick="this.href = $('#img-out img').attr('src');" download="halloween">download</a>
+<!--  <a class="button" href="#"
+onclick="this.href = $('#img-out img').attr('src');" download="halloween">download</a> -->
 
 <div id="new" class="button">take a new photo</div><br><br><br><br>
 
 <form method="POST" enctype="multipart/form-data" action="save.php" id="uploadImage">
   <input type="hidden" name="fileToUpload" id="fileToUpload" value="" /><br>
   EMAIL: <input name="send-email" id="send-email" value="" /><br>
-  <input type="checkbox" checked="checked" name="share" ide="share" value="share"/> I'm cool with this in a public gallery
+  <input type="checkbox" checked="checked" name="share" id="share" value="share"/> I'm cool with this in a public gallery
   </form>
 <br>
 <div id="send" class="button">Save & Email</div>
@@ -264,7 +288,8 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
 </div>
 
 </div>
-
+  
+  <div id="mask-box">
   <div id="images" class="masks-carousel owl-carousel">
     <div class="item"><img class="change" src="hats/arthur.png" data-name="arthur"></div>
     <div class="item"><img class="change" src="hats/dw.png" data-name="dw"></div>
@@ -280,6 +305,7 @@ onclick="this.href = $('#img-out img').attr('src');" download="halloween">downlo
     <div class="item"><img class="change" src="hats/witch.png" data-name="witch"></div>
     <div class="item"><img class="change" src="hats/frankenstein.png" data-name="frankenstein"></div>
   </div>
+</div>
 
   <div id="bg-thumbs">
 

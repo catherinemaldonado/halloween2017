@@ -41,7 +41,7 @@
 				"xpos":".4","ypos":".75","imgwidth":"1.8","imgheight":"1.8"
 		}],
 		"george":[{
-				"xpos":".19","ypos":".25","imgwidth":"1.45","imgheight":"1.5"
+				"xpos":".05","ypos":".45","imgwidth":"1.15","imgheight":"1.5"
 		}],
 		"MIYH":[{
 			"xpos":".3","ypos":"1.25","imgwidth":"1.64","imgheight":"1.64"
@@ -50,19 +50,19 @@
 				"xpos":".05","ypos":".25","imgwidth":"1.15","imgheight":"1.15"
 		}],
 		"wolfman":[{
-				"xpos":".07","ypos":".3","imgwidth":"1.175","imgheight":"1.175"
+				"xpos":".1","ypos":".3","imgwidth":"1.175","imgheight":"1.175"
 		}],
 		"mans_hat":[{
 				"xpos":".15","ypos":".45","imgwidth":"1.32","imgheight":"1.32"
 		}],
 		"womans_hat":[{
-				"xpos":"-.3","ypos":".65","imgwidth":".75","imgheight":"1.1"
+				"xpos":".08","ypos":".65","imgwidth":"1.1","imgheight":"1.1"
 		}],
 		"mummy":[{
 				"xpos":".35","ypos":".25","imgwidth":"1.45","imgheight":"1.45"
 		}],
 		"witch":[{
-				"xpos":".42","ypos":".85","imgwidth":"1.9","imgheight":"1.9"
+				"xpos":".46","ypos":".85","imgwidth":"1.9","imgheight":"1.9"
 		}],
 		"frankenstein":[{
 				"xpos":".1","ypos":".2","imgwidth":"1.25","imgheight":"1.35"

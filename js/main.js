@@ -5,7 +5,8 @@ $('.masks-carousel').owlCarousel({
     margin:10,
     nav:true, 
     navText:'',
-    items:8
+    items:8,
+    slideBy:6
 })
 
 var seconds;
