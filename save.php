@@ -138,7 +138,7 @@ setTimeout(function() {
   var content = $("#user-image").data("base");
 
 
-    emailjs.send("smtp_server", "test", {content: content, email: email}); 
+    emailjs.send("outlook", "test", {content: content, email: email}); 
 
     $("#success").addClass("show");
     $("#sending").addClass("hide");
