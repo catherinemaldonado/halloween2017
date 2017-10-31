@@ -61,6 +61,7 @@ a:link, a:visited, a:active{
 <?php
 
 $directory = 'uploads/';
+$directoryp = 'uploadsp/';
 $files = glob($directory . '*.jpg');
 
 
@@ -96,7 +97,9 @@ echo '<img id="user-image" src="'. $directory .'halloween_'. $filecount .'_'.$my
   echo '<p>Your image is in the public gallery!</p>';
 
 }else{
-  echo  '<img id="user-image" src="data:image/jpg;base64,' . $base64 . '" />';
+  file_put_contents($directoryp.'halloween_'. $filecount .'_'.$my_string.'.jpg', $unencodedData);
+
+echo '<img id="user-image" src="'. $directoryp .'halloween_'. $filecount .'_'.$my_string.'.jpg" data-base="'. $base64 .'"/>';
   echo '<p>Your image is not in the public gallery.</p>';
 }
 
