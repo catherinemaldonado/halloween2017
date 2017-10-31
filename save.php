@@ -18,6 +18,17 @@
 
 <style>
 
+ body{
+    font-family:arial;
+    background-color: #000;
+    color:#fff;
+  }
+
+  p{
+    max-width: 300px;
+    margin:20px auto;
+  }
+
 #success{
   display: none;
 }
@@ -34,6 +45,10 @@
   width:300px;
   margin:0 auto;
   display: block;
+}
+
+a:link, a:visited, a:active{
+  color:#fff;
 }
 
 </style>
@@ -108,7 +123,7 @@ $images = glob($dirname."*.jpg");
 </p>
 
 <p id="success">
-  Email sent! Return to <a href="index_upload.php">photo booth</a> or view the gallery.
+  Email sent! Return to <a href="index.php">photo booth</a> or view the <a href="gallery.php">gallery</a>.
 </p>
 
 
